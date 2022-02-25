@@ -1,8 +1,10 @@
+// Spinner
 function spinnerControl(remove, add) {
   const spinner = document.getElementById("spinner");
   spinner.classList.remove(remove);
   spinner.classList.add(add);
 }
+// Search Handler
 const searchBtn = document.getElementById("search-btn");
 searchBtn.addEventListener("click", () => {
   const searchField = document.getElementById("search-field");
@@ -14,9 +16,8 @@ searchBtn.addEventListener("click", () => {
   } else {
     errorDiv.innerText = "";
 
-    // Spinner
-
     spinnerControl("d-none", "d-block");
+
     // Load Meals APi ..........
 
     const loadMeals = () => {
