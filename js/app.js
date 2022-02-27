@@ -4,6 +4,10 @@ function spinnerControl(remove, add) {
   spinner.classList.remove(remove);
   spinner.classList.add(add);
 }
+//Hide results when spinner loading
+const resultControl = (controler) => {
+  document.getElementById("result-container").style.display = controler;
+};
 // Search Handler
 const searchBtn = document.getElementById("search-btn");
 searchBtn.addEventListener("click", () => {
@@ -17,6 +21,7 @@ searchBtn.addEventListener("click", () => {
     errorDiv.innerText = "";
 
     spinnerControl("d-none", "d-block");
+    resultControl("none");
 
     // Load Meals APi ..........
 
@@ -41,6 +46,8 @@ searchBtn.addEventListener("click", () => {
     const displayMeals = (data) => {
       const resultContainer = document.getElementById("result-container");
       spinnerControl("d-block", "d-none");
+      resultControl("flex");
+
       const mealsFromData = data.meals;
       const resultCount = document.getElementById("result-count");
       if (mealsFromData.length > 1) {
